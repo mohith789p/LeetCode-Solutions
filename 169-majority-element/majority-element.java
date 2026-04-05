@@ -7,6 +7,8 @@ class Solution {
                 max = num;
             }
             count += (num == max) ? 1 : -1;
+
+            System.out.println(max + " " + count);
         }
 
         return max;
