@@ -15,6 +15,7 @@ class Solution {
                 b = temp.get(j);
                 res.add(a + b);
             }
+            
             res.add(1);
             ans.add(res);
         }
