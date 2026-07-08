@@ -18,6 +18,6 @@ class Solution {
             mp.put(curr, mp.getOrDefault(curr, 0) + 1);
         }
 
-        return count;
+        return count; 
     }
 }
