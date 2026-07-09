@@ -17,10 +17,8 @@ class Solution {
         }
 
         subset.add(nums[i]);
-        System.out.println(i + "->" + subset);
         backTrack(nums, i + 1, subset, res);
         subset.remove(subset.size() - 1);
-        System.out.println(i + "->" + subset);
         backTrack(nums, i + 1, subset, res);
     }
 }
