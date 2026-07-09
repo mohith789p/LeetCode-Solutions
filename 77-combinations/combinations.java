@@ -15,13 +15,10 @@ class Solution {
             return;
         }
 
-        if(i == n + 1){
-            return;
+        for(int j = i; j <= n; j++){
+            sub.add(j);
+            back(n, k, j + 1, ans, sub);
+            sub.remove(sub.size() -1);
         }
-
-        sub.add(i);
-        back(n, k, i + 1, ans, sub);
-        sub.remove(sub.size() -1);
-        back(n, k, i + 1, ans, sub);
     }
 }
