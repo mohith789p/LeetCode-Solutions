@@ -1,21 +1,18 @@
 class Solution {
     public List<List<Integer>> permuteUnique(int[] nums) {
-        List<List<Integer>> ans = new ArrayList<>();
+        Set<List<Integer>> ans = new HashSet<>();
 
         backTrack(nums, 0, ans);
-        return ans;
+        return new ArrayList<>(ans);
     }
 
-    private void backTrack(int[] nums, int i, List<List<Integer>> res){
+    private void backTrack(int[] nums, int i, Set<List<Integer>> res){
         if(i == nums.length){
             List<Integer> cur = new ArrayList<>();
             for(int num : nums){
                 cur.add(num);
             }
-            
-            if(!res.contains(cur))
-                res.add(cur);
-
+            res.add(cur);
             return;
         }
 
