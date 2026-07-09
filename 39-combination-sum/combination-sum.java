@@ -13,11 +13,12 @@ class Solution {
             return;
         }
 
-        if(sum > k || i == arr.length) return;
+        for(int j = i; j < arr.length; j++){
+            if(sum > k) continue;
 
-        sub.add(arr[i]);
-        back(arr, k, i, sum + arr[i], sub, res);
-        sub.remove(sub.size() -1);
-        back(arr, k, i + 1, sum, sub, res);
+            sub.add(arr[j]);
+            back(arr, k, j, sum + arr[j], sub, res);
+            sub.remove(sub.size() -1);
+        }
     }
 }
