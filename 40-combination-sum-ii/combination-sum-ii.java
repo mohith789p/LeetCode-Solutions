@@ -14,9 +14,9 @@ class Solution {
             return;
         }
 
-        if(sum > k || i == arr.length) return;
-
         for(int j = i; j < arr.length; j++){
+            if(sum + arr[j] > k) break;
+            
             if(j > i && arr[j] == arr[j - 1]) continue;
 
             sub.add(arr[j]);
