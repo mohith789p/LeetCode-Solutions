@@ -1,12 +1,12 @@
 class Solution {
     public List<List<Integer>> permuteUnique(int[] nums) {
-        Set<List<Integer>> ans = new HashSet<>();
+        List<List<Integer>> ans = new ArrayList<>();
 
         backTrack(nums, 0, ans);
-        return new ArrayList<>(ans);
+        return ans;
     }
 
-    private void backTrack(int[] nums, int i, Set<List<Integer>> res){
+    private void backTrack(int[] nums, int i, List<List<Integer>> res){
         if(i == nums.length){
             List<Integer> cur = new ArrayList<>();
             for(int num : nums){
@@ -15,8 +15,12 @@ class Solution {
             res.add(cur);
             return;
         }
+        Set<Integer> seen = new HashSet<>();
 
         for(int j = i; j < nums.length; j++){
+            if(seen.contains(nums[j])) continue;
+            
+            seen.add(nums[j]);
             swap(nums, i, j);
             backTrack(nums, i + 1, res);
             swap(nums, i, j);
