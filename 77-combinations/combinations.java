@@ -1,17 +1,18 @@
 class Solution {
     public List<List<Integer>> combine(int n, int k) {
-        Set<List<Integer>> ans = new HashSet<>();
+        List<List<Integer>> ans = new ArrayList<>();
         List<Integer> sub = new ArrayList<>();
 
         back(n, k, 1, ans, sub);
 
-        return new ArrayList<>(ans);
+        return ans;
     }
 
-    private void back(int n, int k, int i, Set<List<Integer>> ans, List<Integer> sub){
-        
+    private void back(int n, int k, int i, List<List<Integer>> ans, List<Integer> sub){
+
         if(sub.size() == k){
             ans.add(new ArrayList<>(sub));
+            return;
         }
 
         if(i == n + 1){
