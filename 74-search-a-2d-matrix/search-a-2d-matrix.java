@@ -15,9 +15,21 @@ class Solution {
         }
 
         if(high < 0) return false;
+        int k = high;
 
-        for(int num : matrix[high]){
-            if(num == target) return true;
+        low = 0;
+        high = matrix[0].length - 1;
+
+        while(low <= high){
+            int mid = low + (high - low) / 2;
+
+            if(matrix[k][mid] == target) return true;
+
+            else if(matrix[k][mid] < target){
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
         }
 
         return false;
