@@ -10,7 +10,7 @@ class Solution {
 
                     if(j == 0 || grid[i][j - 1] == 0) peri++;
 
-                    if(j == grid[0].length - 1 || grid[i][j + 1] == 0) peri++;
+                    if(j == grid[0].length - 1 || grid[i][j + 1] == 0l) peri++;
                 }
             }
         }
