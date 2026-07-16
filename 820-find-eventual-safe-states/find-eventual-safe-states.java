@@ -30,8 +30,7 @@ class Solution {
             vis[curr] = true;
             
             for (int neighbor : graph2.get(curr)) {
-                outdeg[neighbor]--;
-                if (outdeg[neighbor] == 0) {
+                if (--outdeg[neighbor] == 0) {
                     q.add(neighbor);
                 }
             }
