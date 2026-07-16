@@ -39,8 +39,7 @@ class Solution {
             int cur = q.poll();
             ans[idx++] = cur;
             for (int neigh : gh.getNeigh(cur)) {
-                indeg[neigh]--;
-                if (indeg[neigh] == 0)
+                if (--indeg[neigh] == 0)
                     q.add(neigh);
             }
         }
