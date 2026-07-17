@@ -14,13 +14,13 @@ class Solution {
         boolean[][] atl = new boolean[m][n];
 
         for (int col = 0; col < n; col++) {
-            dfs(heights, 0, col, heights[0][col], pac);
-            dfs(heights, m - 1, col, heights[m - 1][col], atl);
+            dfs(heights, 0, col, m, n, heights[0][col], pac);
+            dfs(heights, m - 1, col, m, n, heights[m - 1][col], atl);
         }
 
         for (int row = 0; row < m; row++) {
-            dfs(heights, row, 0, heights[row][0], pac);
-            dfs(heights, row, n - 1, heights[row][n - 1], atl);
+            dfs(heights, row, 0, m, n, heights[row][0], pac);
+            dfs(heights, row, n - 1, m, n, heights[row][n - 1], atl);
         }
 
         for (int r = 0; r < m; r++) {
@@ -34,16 +34,13 @@ class Solution {
         return ans;
     }
 
-    private void dfs(int[][] grid, int row, int col, int prev, boolean[][] vis) {
-        if (row < 0 || col < 0 || row >= grid.length || col >= grid[0].length || vis[row][col] || grid[row][col] < prev) {
-            return;
-        }
+    private static int[][] dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
+    private void dfs(int[][] grid, int row, int col, int m, int n, int prev, boolean[][] vis) {
+        if (row < 0 || col < 0 || row >= m || col >= n || vis[row][col] || grid[row][col] < prev) return;
 
         vis[row][col] = true;
 
-        dfs(grid, row - 1, col, grid[row][col], vis);
-        dfs(grid, row + 1, col, grid[row][col], vis);
-        dfs(grid, row, col - 1, grid[row][col], vis);
-        dfs(grid, row, col + 1, grid[row][col], vis);
+        for(int[] d : dir) dfs(grid, row + d[0], col + d[1], m, n, grid[row][col], vis);
     }
 }
