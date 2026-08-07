@@ -1,14 +1,16 @@
 class Solution {
-    public int climbStairs(int n) {
-        if(n == 2) return 2;
-        if(n == 1) return 1;
+    static int dp[] = new int[46];
+    
+    static {
+        dp[1] = 1;
+        dp[2] = 2;
 
-        int a = 1, b = 2, c = 0;
-        for(int i = 3; i <= n; i++){
-            c = a + b;
-            a = b;
-            b = c;
+        for(int i = 3; i < 46; i++){
+            dp[i] = dp[i - 1] + dp[i - 2];
         }
-        return c;
+    }
+
+    public int climbStairs(int n) {
+        return dp[n];
     }
 }
