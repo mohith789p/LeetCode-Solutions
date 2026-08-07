@@ -1,7 +1,7 @@
 class Solution {
     static int dp[] = new int[31];
 
-    private static void fillDP(){
+    static {
         dp[0] = 0;
         dp[1] = 1;
 
@@ -10,10 +10,6 @@ class Solution {
         }
     }
     public int fib(int n) {
-        if(dp[1] != 1){
-            fillDP();
-        }
-        
         return dp[n];
     }
 }
