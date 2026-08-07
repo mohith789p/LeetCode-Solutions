@@ -1,16 +1,7 @@
 class Solution {
     public int fib(int n) {
-        if(n <= 1) return n;
-        
-        int a = 0;
-        int b = 1;
-        int c = 1;
-        while(n-- > 1){
-            c = a + b;
-            a = b;
-            b = c;
-        }
+        if(n == 0 || n == 1) return n;
 
-        return c;
+        return fib(n - 1) + fib(n - 2);
     }
 }
